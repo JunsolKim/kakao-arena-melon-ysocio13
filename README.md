@@ -12,6 +12,7 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
  - scipy
  - pandas
  - scikit-learn
+ - gensim
  - lightgbm
  - (tqdm, q_tqdm 삭제 필요)
 
@@ -23,4 +24,4 @@ In order to replicate our final submissions to the Melon Playlist Continuation c
  1. After putting the data in `res/`, you need to run `python preprocess.py` to preprocess the data. 
  2. Then, to train the models, you need to run `python train.py`. 
  - Generated models are (1) word2vec track+tag embedding model, (2) Keras MLP model to deal with cold start issue, (3) lightgbm model which uses neighbor-based similarity score (See Zhu, L., He, B., Ji, M., Ju, C., & Chen, Y. (2018). Automatic music playlist continuation via neighbor-based collaborative filtering and discriminative reweighting/reranking. In Proceedings of the ACM Recommender Systems Challenge 2018.) and playlist/song metadata.
- 3. Finally, you need to run `python inference.py` to get the final recommendation results, which will generate `results.json`.
+ 3. Finally, you need to run `python inference.py` to get the final results, which will generate `results.json`.
