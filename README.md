@@ -15,10 +15,10 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
  - lightgbm
  - (tqdm, q_tqdm 삭제 필요)
 
-## How to prepare data
+## Data
 In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `test.json`, and `song_meta.json` from https://arena.kakao.com/. After downloading these files, put the files in a folder `res/`.
 
-## How to generate results
+## How to generate the results
 
  1. After putting the data in `res/`, you need to run `python preprocess.py` to preprocess the data. 
  2. Then, to train the models, you need to run `python train.py`. 
