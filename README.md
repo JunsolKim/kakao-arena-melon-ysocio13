@@ -2,7 +2,7 @@
 
 This repository contains the Python source code of our solutions to the Melon Playlist Continuation challenge.
 
-## Running Environment and Required Computational Resources
+## Running environment
 
 We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine. The training part took almost 2 hours and less than 50GB memory. The inference part took almost 2 hours and less than 50GB memory.
 
@@ -15,10 +15,10 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
  - lightgbm
  - (tqdm, q_tqdm 삭제 필요)
 
-## Data Preparation
+## How to prepare data
 In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `test.json`, and `song_meta.json` from https://arena.kakao.com/. After downloading these files, put the files in a folder `res/`.
 
-## Results Generation
+## How to generate results
 
  1. After downloading the data in `res/`, you need to run `python preprocess.py` to preprocess the data. 
  2. Then, to train the models, you need to run `python train.py`. 
