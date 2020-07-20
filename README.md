@@ -16,7 +16,7 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
 
 ## Data
 
-In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `val.json`, `test.json`, and `song_meta.json` from https://arena.kakao.com/. After downloading these files, put the files in a folder `res/`.
+In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `val.json`, `test.json`, `song_meta.json`, and `genre_gn_all.json` from https://arena.kakao.com/. After downloading these files, put the files in a folder `res/`.
 
 ## How to generate the results
 
