@@ -4,7 +4,7 @@ This repository contains the Python source code of our solutions to the Melon Pl
 
 ## Running environment
 
-We ran our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine. The training part took almost 2 hours and less than 50GB memory. The inference part took almost 2 hours and less than 50GB memory.
+We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine. The training part took almost 2 hours and less than 50GB memory. The inference part took almost 2 hours and less than 50GB memory.
 
 ### Dependencies
 
