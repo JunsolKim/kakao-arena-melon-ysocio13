@@ -8,7 +8,7 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
 
 ### Dependencies
 
- - numpy/scipy/pandas
+ - numpy/scipy
  - scikit-learn (0.22.2.post1)
 
 ## Data
