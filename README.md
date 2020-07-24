@@ -4,7 +4,7 @@ This repository contains the Python source code of our solutions to the Kakao Ar
 
 ## Running environment
 
-We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine. The preprocess and training parts took less than one hour. The inference part took almost 5~6 hours and less than 40GB memory.
+We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine. The inference part took almost 5~6 hours and less than 40GB memory.
 
 ### Dependencies
 
