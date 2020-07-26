@@ -91,7 +91,7 @@ print("load test data...")
 test = load_json('data/test_items.json')
 test_item_indices = dict()
 test_playlist_id = []
-for q in test[:5]:
+for q in test:
     if 'items' in q.keys():
         test_item_indices[q['id']] = q['items']
         test_playlist_id.append(q['id'])
