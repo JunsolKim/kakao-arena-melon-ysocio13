@@ -13,7 +13,7 @@ We run our project under Python 3.7.4, on a Intel Core i9-9960X*16+120GB machine
 
 ## Data
 
-In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `val.json`, `test.json` from https://arena.kakao.com/. After downloading these files, put the files in the folder `res/` (do not put the files in the folder `data/` !).
+In order to replicate our final submissions to the Melon Playlist Continuation challenge, you first need to download `train.json`, `val.json`, `test.json` from https://arena.kakao.com/. After downloading these files, put the files in the folder `res/`. (Do not put the files in the folder `data/` ! This folder is for saving preprocessed data)
 
 ## How to generate the 파이널 리더보드 results
 
