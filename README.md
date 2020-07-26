@@ -17,10 +17,10 @@ In order to replicate our final submissions to the Melon Playlist Continuation c
 
 ## How to generate the 파이널 리더보드 results
 
- 1. After putting the aforementioned data in `res/`, you need to run `python preprocess.py` to get ready for the data. 
+ 1. After putting the aforementioned files in `res/`, you need to run `python preprocess.py` to get ready for the data. 
  2. Then you need to run `python inference.py` to get the final results, which will generate `results.json`.
  
  ## How to generate the 공개 리더보드 results
 
- 1. After putting the aforementioned data in `res/`, you need to run `python preprocess_공개리더보드.py` to get ready for the data. 
+ 1. After putting the aforementioned files in `res/`, you need to run `python preprocess_공개리더보드.py` to get ready for the data. 
  2. Then you need to run `python inference.py` to get the final results, which will generate `results.json`.
