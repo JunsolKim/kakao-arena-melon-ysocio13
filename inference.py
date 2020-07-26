@@ -91,7 +91,7 @@ print("load test data...")
 test = load_json('data/test_items.json')
 test_item_indices = dict()
 test_playlist_id = []
-for q in test:
+for q in test[:5]:
     if 'items' in q.keys():
         test_item_indices[q['id']] = q['items']
         test_playlist_id.append(q['id'])
@@ -118,8 +118,8 @@ for q in test:
         'songs': remove_seen(q['songs'], q['songs_mp'])[:100],
         'tags': remove_seen(q['tags'], q['tags_mp'])[:10] })
     if len(answers[len(answers)-1]['songs']) < 100 or len(answers[len(answers)-1]['tags']) < 10:
-        answers[len(answers)-1]['songs'] = remove_seen(q['songs'] + answers[len(answers)-1]['songs'], q['songs_mp'])[:100]
-        answers[len(answers)-1]['tags'] = remove_seen(q['tags'] + answers[len(answers)-1]['tags'], q['tags_mp'])[:10]
+        answers[len(answers)-1]['songs'] = (answers[len(answers)-1]['songs'] + remove_seen(q['songs'] + answers[len(answers)-1]['songs'], q['songs_mp']))[:100]
+        answers[len(answers)-1]['tags'] = (answers[len(answers)-1]['tags'] + remove_seen(q['tags'] + answers[len(answers)-1]['tags'], q['tags_mp']))[:10]
 write_json(answers, 'results.json')
 
 print('end')
