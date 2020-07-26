@@ -1,7 +1,6 @@
 import numpy as np
 import gc
 from scipy.sparse import coo_matrix, lil_matrix, csr_matrix, load_npz
-import pandas as pd
 from multiprocessing import Pool
 from time import time
 from sklearn.svm import LinearSVC
