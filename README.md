@@ -19,3 +19,7 @@ In order to replicate our final submissions to the Melon Playlist Continuation c
 
  1. After putting the aforementioned files in `res/`, you need to run `python preprocess.py` to get ready for the data. 
  2. Then you need to run `python inference.py` to get the final results, which will generate `results.json`.
+
+## Reference
+
+ https://github.com/LauraBowenHe/Recsys-Spotify-2018-challenge
