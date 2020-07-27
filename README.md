@@ -22,4 +22,4 @@ In order to replicate our final submissions to the Melon Playlist Continuation c
 
 ## Reference
 
- https://github.com/LauraBowenHe/Recsys-Spotify-2018-challenge
+Zhu, L., He, B., Ji, M., Ju, C., & Chen, Y. (2018). Automatic music playlist continuation via neighbor-based collaborative filtering and discriminative reweighting/reranking. In Proceedings of the ACM Recommender Systems Challenge 2018 (pp. 1-6). https://github.com/LauraBowenHe/Recsys-Spotify-2018-challenge
