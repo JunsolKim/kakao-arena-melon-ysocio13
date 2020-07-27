@@ -66,7 +66,7 @@ def neighbor_based_cf(playlist_id):
     label = np.zeros(song_playlist_train_matrix.shape[0])
     label[item_indices] = 1
     
-    clf = LinearSVC(C=Cr,class_weight={0:1,1:1},tol=1e-6, dual = True, max_iter=360000)
+    clf = LinearSVC(C=Cr,class_weight={0:1,1:1},tol=1e-6, dual = True, random_state=13, max_iter=360000)
     clf.fit(predictions.transpose(),label)
     predictions = clf.decision_function(predictions.transpose())
     predictions = np.argsort(np.array(predictions).flatten() - min(predictions))[::-1]
