@@ -13,15 +13,15 @@ Python 3.7.4가 설치된 Intel Core i9-9960X+RAM 120GB Machine을 사용하였�
  
 ## 모형 특징
 
- - Neighbor-based CF 모형입니다. 기본적으로 각 플레이리스트 u의 item (곡/태그/제목 키워드) i와 새로운 item j 간에 거리를 측정한 뒤, i들과의 거리가 가까운 j를 u에게 추천합니다. i와 j 간의 거리 s<sub>ij</sub>는 다음과 같은 방식으로 측정하였습니다.
+ - Neighbor-based CF 모형입니다. 각 플레이리스트 u에 포함된 item (곡/태그/제목 키워드) i와 새로운 item j 간에 유사도를 측정한 뒤, 가장 가까운 j들을 추천합니다. i와 j 간의 유사도 s<sub>ij</sub>는 다음과 같은 방식으로 측정하였습니다.
  
- ![카카오그림1](https://user-images.githubusercontent.com/13177827/92388100-a91b3900-f151-11ea-8ace-591205f98df3.JPG)
+ ![카카오그림1](https://user-images.githubusercontent.com/13177827/92388629-948b7080-f152-11ea-925d-e6cea36d3080.JPG)
 
-- 추천 성능을 높이기 위해, 대표성이 낮은 곡들에 패널티를 부여하는 discriminative reweighting 기법을 사용했습니다 (Zhu et al., 2018). 예를 들어, 플레이리스트 u에 포함된 어떤 곡 i가 u와 어울리지 않는다면, i에 penalty를 부여하여 i와 가까운 곡들이 덜 추천되도록 합니다. 이를 위해, 각 item i와 j 간 similarity를 나타낸 vector r<sub>j</sub>를 만들고, 각 r<sub>j</sub> vector로 y<sub>j</sub> (플레이리스트 u가 item j를 포함하는지 여부)를 예측하는 L2-regularized support vector classifier를 학습합니다.
+- 추천 성능을 높이기 위해, 플레이리스트 대표성이 낮은 곡들에 패널티를 부여하는 discriminative reweighting 기법을 사용했습니다 (Zhu et al., 2018). 예를 들어, 플레이리스트 u에 포함된 어떤 곡 i가 u와 어울리지 않는다면 (u에 포함된 다른 곡들과 유사하지 않다면), i에 penalty를 부여하여 i와 유사한 곡들이 덜 추천되도록 합니다. 이를 위해, 모든 item j에 대하여 플레이리스트 u에 포함된 각 item i과의 similarity를 나타낸 vector r<sub>j</sub>를 만듭니다. 이어서 각 r<sub>j</sub> vector로 y<sub>j</sub> (플레이리스트 u가 item j를 포함하는지 여부)를 예측하는 L2-regularized support vector classifier를 학습합니다.
  
- ![카카오그림2](https://user-images.githubusercontent.com/13177827/92388099-a7ea0c00-f151-11ea-8a79-66f62b02f4f7.JPG) 
- 
-  - cold start issue를 해소하기 위해 제목 키워드를 item에 포함했습니다. 멜론 플레이리스트들에 5번 이상 등장한 태그들로 키워드 사전을 만든 뒤, 각 플레이리스트 제목에 포함된 키워드를 item에 추가했습니다.
+ ![카카오그림2](https://user-images.githubusercontent.com/13177827/92388635-95bc9d80-f152-11ea-8b12-fa5cd6c1031d.JPG)
+
+  - cold start issue를 해소하기 위해 제목 키워드를 item에 포함했습니다. 멜론 플레이리스트들에 5번 이상 등장한 태그들로 키워드 사전을 만든 뒤, 각 플레이리스트 제목에 포함된 키워드들을 item에 추가했습니다.
 
  
 ## 데이터
