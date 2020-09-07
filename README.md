@@ -13,7 +13,7 @@ Python 3.7.4가 설치된 Intel Core i9-9960X+RAM 120GB Machine을 사용하였�
  
 ## 모형 특징
 
- - Neighbor-based CF 모형입니다. 각 플레이리스트 u에 포함된 item (곡/태그/제목 키워드) i와 새로운 item j 간에 유사도를 측정한 뒤, 가장 가까운 j들을 추천합니다. i와 j 간의 유사도 s<sub>ij</sub>는 다음과 같은 방식으로 측정하였습니다.
+ - Neighbor-based CF 모형입니다. 각 플레이리스트 u에 포함된 item (곡/태그/제목 키워드) i와 새로운 item j 간에 유사도를 측정한 뒤, u와 가장 가까운 j들을 추천합니다. i와 j 간의 유사도 s<sub>ij</sub>는 다음과 같은 방식으로 측정하였습니다.
  
  ![카카오그림1](https://user-images.githubusercontent.com/13177827/92388629-948b7080-f152-11ea-925d-e6cea36d3080.JPG)
 
