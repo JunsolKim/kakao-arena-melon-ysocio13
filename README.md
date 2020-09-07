@@ -1,6 +1,6 @@
 # Our Solutions to the Kakao Arena - Melon Playlist Continuation Challenge (2nd Position on the Final Leaderboard)
 
-카카오 아레나 3회 대회인 Melon Playlist Continuation에 참여한 연대사회13 팀의 Python 코드입니다. Neighbor-based collaborative filtering via discriminative reweighting 단일 모형으로 파이널 리더보드 2위를 달성하였습니다 (곡 nDCG: 0.321238, 태그 nDCG: 0.507595).
+카카오 아레나 - Melon Playlist Continuation 대회에 참여한 연대사회13 팀의 Python 코드입니다. Neighbor-based collaborative filtering via discriminative reweighting 단일 모형으로 파이널 리더보드 2위를 달성하였습니다 (곡 nDCG: 0.321238, 태그 nDCG: 0.507595).
 
 ## 개발 환경
 
