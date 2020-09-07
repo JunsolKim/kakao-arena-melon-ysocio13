@@ -1,30 +1,31 @@
 # Our Solutions to the Kakao Arena - Melon Playlist Continuation Challenge (2nd Position on the Final Leaderboard)
 
-카카오 아레나 3회 대회인 Melon Playlist Continuation에 참여한 연대사회13 팀의 Python 코드입니다. 파이널 리더보드 2위를 달성하였습니다 (곡 nDCG: 0.321238, 태그 nDCG: 0.507595).
+카카오 아레나 3회 대회인 Melon Playlist Continuation에 참여한 연대사회13 팀의 Python 코드입니다. Neighbor-based collaborative filtering via discriminative reweighting 단일 모형으로 파이널 리더보드 2위를 달성하였습니다 (곡 nDCG: 0.321238, 태그 nDCG: 0.507595).
 
-## 실행 환경
+## 개발 환경
 
-Python 3.7.4이 설치된, Intel Core i9-9960X+RAM 120GB Machine에서 실행하였습니다. Preprocess 소요 시간은 10-20분이며, Inference 소요 시간은 2-3시간입니다 (메모리 40GB 사용).
+Python 3.7.4가 설치된 Intel Core i9-9960X+RAM 120GB Machine을 사용하였습니다. Preprocess 소요 시간은 10-20분이며, Inference 소요 시간은 2-3시간이었습니다 (메모리 40GB 사용).
 
 ### Dependencies
 
  - numpy/scipy
  - scikit-learn (0.22.2.post1)
  
-## 모델 소개
+## 모형 특징
 
- - Neighbor-based collaborative filtering 모델입니다. 각 플레이리스트와 새로운 곡/태그 간에 거리를 측정한 뒤, 거리가 가장 가까운 순서대로 새로운 곡/태그를 추천합니다. 플레이리스트 i와 곡/태그 j 간의 거리는 아래와 같은 방식으로 측정됩니다.
- - 거리를 측정할 때 "제목에 포함된 단어"도 사용한 이유는, 곡/태그가 주어지지 않은 플레이리스트의 cold start issue를 해소하기 위함입니다. 또한 Neighbor-based 모델이 적절하다고 생각한 이유는, 멜론 플레이리스트들이 하나의 플레이리스트 안에 다양한 주제/취향의 곡을 포함하기보다 한 가지 주제/취향에 집중하는 경향이 있다고 보았기 때문입니다. User 취향의 복잡성을 고려하는 추천 모델보다는, 단순한 Neighbor-based 모델이 더 높은 성능을 보일 것이라 보았습니다. 
- - 추천 성능을 높이기 위해 discriminative reweighting 기법을 사용했습니다 (Zhu et al., 2018). 구체적으로, Linear Support Vector Classifier를 통해 대표성이 낮은 곡들에 penalty를 부여하는 reweighting model을 학습했습니다. 플레이리스트에 포함된 곡들 가운데, 어떤 곡들은 플레이리스트의 특성을 잘 반영하지 못할 수도 있습니다. 예를 들어, 발라드 곡 중심의 플레이리스트에 소수의 힙합 곡들이 포함될 수도 있습니다. 만일 해당 힙합 곡들과 가까운 곡들이 플레이리스트에 포함될 가능성이 낮을 경우, 힙합 곡들에 penalty를 부여합니다.
+ - Neighbor-based CF 모형입니다. 기본적으로 각 플레이리스트 u의 item (곡/태그/제목 키워드) i와 새로운 item j 간에 거리를 측정한 뒤, i와의 거리가 가까운 순서대로 새로운 곡/태그 j를 추천합니다. i와 j 간의 거리 s<sub>ij</sub>는 다음과 같은 방식으로 측정하였습니다.
+ - cold start issue를 해소하기 위해 제목 키워드를 item에 포함했습니다. 멜론 플레이리스트들에 5번 이상 등장한 태그들로 키워드 사전을 만든 뒤, 각 플레이리스트 제목에 포함된 키워드를 item에 추가했습니다.
+ - 추천 성능을 높이기 위해, 대표성이 낮은 곡들에 패널티를 부여하는 discriminative reweighting 기법을 사용했습니다 (Zhu et al., 2018). 예를 들어, 플레이리스트 u에 포함된 어떤 곡 i가 u와 어울리지 않는다면, i에 penalty를 부여하여 i와 가까운 곡들이 덜 추천되도록 합니다. 이를 위해, 각 item j와 플레이리스트 u의 item i 간 similarity를 나타낸 vector r<sub>j</sub>를 만들고, 각 r<sub>j</sub> vector들이 y<sub>j</sub> (플레이리스트 u가 item j를 포함하는지 여부)를 예측하는 L2-regularized support vector classifier를 학습합니다.
+ 
  
 ## 데이터
 
  https://arena.kakao.com/ 사이트의 `train.json`, `val.json`, `test.json` 데이터를 `res/` 폴더에 다운로드 받으세요.
 
-## 결과 재현하기
+## 결과 재현
 
  1. 데이터를 다운로드 받은 뒤, `python preprocess.py` 를 실행하여 데이터를 전처리하세요. 
- 2. 다음으로, `python inference.py`를 실행하면 추천 결과가 `results.json` 에 저장됩니다.
+ 2. 다음으로 `python inference.py`를 실행하면, 추천 결과가 `results.json` 에 저장됩니다.
 
 ## Reference
 
