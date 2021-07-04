@@ -163,7 +163,7 @@ for q in test:
     
     if 'songs'+q['updt_date'][0:7] in most_popular_results.keys():
         q['songs_mp'] = (remove_seen(q['songs'],most_popular_results['songs'+q['updt_date'][0:7]] + remove_seen(most_popular_results['songs'+q['updt_date'][0:7]], most_popular_results['songs'])))[:100]
-        q['tags_mp'] = (remove_seen(q['tags'],most_popular_results['tags'+q['updt_date'][0:7]] + remove_seen(most_popular_results['tags'+q['updt_date'][0:7]], most_popular_results['songs'])))[:10]
+        q['tags_mp'] = (remove_seen(q['tags'],most_popular_results['tags'+q['updt_date'][0:7]] + remove_seen(most_popular_results['tags'+q['updt_date'][0:7]], most_popular_results['tags'])))[:10]
     elif 'songs'+q['updt_date'][0:4] in most_popular_results.keys():
         q['songs_mp'] = (remove_seen(q['songs'],most_popular_results['songs'+q['updt_date'][0:4]] + remove_seen(most_popular_results['songs'+q['updt_date'][0:4]], most_popular_results['songs'])))[:100]
         q['tags_mp'] = (remove_seen(q['tags'],most_popular_results['tags'+q['updt_date'][0:4]] + remove_seen(most_popular_results['tags'+q['updt_date'][0:4]], most_popular_results['tags'])))[:10]
