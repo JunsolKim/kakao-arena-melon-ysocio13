@@ -1,6 +1,6 @@
 # Our Solution to the Kakao Arena - Melon Playlist Continuation Challenge (2nd Position on the Final Leaderboard)
 
-This is our 2nd position solution to Kakao Arena - Melon Playlist Continuation Challenge (Song nDCG: 0.321238, Tag nDCG: 0.507595). The task is to create the recommendation model that recommends songs that are relevant to playlists.
+This is our second-place solution for the Kakao Arena - Melon Playlist Continuation Challenge (Song nDCG: 0.321238, Tag nDCG: 0.507595). The task is to build a model that recommends songs based on playlists.
 
 ## Enviroment
 
@@ -15,15 +15,15 @@ This is our 2nd position solution to Kakao Arena - Melon Playlist Continuation C
  
 ## 모형 특징
 
- - This is a Neighbor-based CF model. The model estimates the similarity between each song i included in a playlist u and song j as follows, and the most similar song j is recommended.
+ - This is a Neighbor-based CF model. The model estimates the similarity between songs included in a playlist u (item i) and songs not included (item j) as follows, and the most similar songs is recommended.
  
  ![equation1](https://user-images.githubusercontent.com/13177827/92404879-6cf6d100-f16f-11ea-9426-53a4c18e78ba.JPG)
 
-- To improve the model performance, we used discriminative reweighting technique that gives penality to songs that do not represent their playlists (Zhu et al., 2018). For instance, if some items contained in a playlist are not similar to the other songs in the playlist, we apply panelty to these items so that they are less likely to be recommended. To do so, for every item j, we create a vector r<sub>j</sub> that represents the similarity between each item j and the entire songs contained in the target playlist. Then we train a L2-regularized support vector classifier (SVC) that predicts y<sub>j</sub> (1 if a playlist u contains an item j, 0 otherwise) using r<sub>j</sub>, which learns the playlist representativeness of each song j. After that, we use this SVC model to decide whether or not to recommend the item j. 
+- We used a discriminative reweighting technique to improve model performance by penalizing songs that do not represent their playlists (Zhu et al., 2018). For example, if some items in a playlist are unrelated to the other songs in the playlist, we apply panelty to these items, making them less likely to be recommended. To accomplish this, we generate a vector r_j for each item j that represents the similarity between each item j and the entire set of songs in the target playlist. Then, using r_j, which learns the playlist representativeness of each song j, we train an L2-regularized support vector classifier (SVC) that predicts y_j (1 if a playlist u contains an item j, 0 otherwise).
  
  ![equation2](https://user-images.githubusercontent.com/13177827/92404878-6bc5a400-f16f-11ea-88f5-afd636b3ac1f.JPG)
 
-  - To reduce the cold start issue, we use title-related keywords that occur 5 times or more in the dataset. Specifically, we include keywords in playlist items along with other songs in the playlist.
+  - We use title-related keywords that appear 5 times or more in the dataset to reduce the cold start issue. Keywords are included in playlist items alongside other songs in the playlist.
  
 ## Dataset
 
@@ -32,7 +32,7 @@ This is our 2nd position solution to Kakao Arena - Melon Playlist Continuation C
 ## How to run
 
  1. Run `python preprocess.py` to preprocess the dataset. 
- 2. Run `python inference.py` to generate recommendations which will be saved in `results.json`.
+ 2. Run `python inference.py` to generate recommendations which are saved in `results.json`.
 
 ## Reference
 
