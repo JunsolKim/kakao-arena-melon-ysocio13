@@ -13,7 +13,7 @@ This is our second-place solution for the Kakao Arena - Melon Playlist Continuat
  - numpy/scipy
  - scikit-learn (0.22.2.post1)
  
-## 모형 특징
+## Model
 
  - This is a Neighbor-based CF model. The model estimates the similarity between songs included in a playlist u (item i) and songs not included (item j) as follows, and the most similar songs is recommended.
  
