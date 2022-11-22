@@ -1,6 +1,6 @@
 # Our Solution to the Kakao Arena - Melon Playlist Continuation Challenge (2nd Position on the Final Leaderboard)
 
-This is our second-place solution for the Kakao Arena - Melon Playlist Continuation Challenge (Song nDCG: 0.321238, Tag nDCG: 0.507595). The task is to build a model that recommends songs based on playlists.
+This is our second-place solution for the Kakao Arena - Melon Playlist Continuation Challenge (Song nDCG: 0.321238, Tag nDCG: 0.507595). The task is to build a model that recommends songs relevant to playlists.
 
 ## Enviroment
 
